@@ -7,7 +7,6 @@ const answerSchema = new mongoose.Schema({
   },
   correct: {
     type: Boolean,
-    required: true,
   },
 });
 
@@ -28,6 +27,10 @@ const testSchema = new mongoose.Schema({
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
+    required: true,
+  },
+  name: {
+    type: String,
     required: true,
   },
   questions: [questionSchema],

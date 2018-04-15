@@ -7,13 +7,14 @@ const router = express.Router();
 
 router.route('/')
   .get((req, res) => {
-    Test.find((err, test) => {
-      if (err) {
-        return res.status(400).json(err);
-      }
+    Test.find(req.query || {})
+      .exec((err, test) => {
+        if (err) {
+          return res.status(400).json(err);
+        }
 
-      return res.json(test);
-    });
+        return res.json(test);
+      });
   })
   .post((req, res) => {
     const newTest = new Test(req.body);

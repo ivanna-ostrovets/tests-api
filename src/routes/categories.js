@@ -7,13 +7,14 @@ const router = express.Router();
 
 router.route('/')
   .get((req, res) => {
-    Category.find((err, category) => {
-      if (err) {
-        return res.status(400).json(err);
-      }
+    Category.find(req.query || {})
+      .exec((err, category) => {
+        if (err) {
+          return res.status(400).json(err);
+        }
 
-      return res.json(category);
-    });
+        return res.json(category);
+      });
   })
   .post((req, res) => {
     const newCategory = new Category(req.body);
