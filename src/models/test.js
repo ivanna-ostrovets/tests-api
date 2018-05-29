@@ -24,14 +24,6 @@ const questionSchema = new mongoose.Schema({
   letteredAnswersQuantity: {
     type: Number,
   },
-  tableTitles: {
-    title1: {
-      type: String,
-    },
-    title2: {
-      type: String,
-    },
-  },
   table: [
     [{ type: String }],
     [{ type: String }],
