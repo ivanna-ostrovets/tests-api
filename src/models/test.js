@@ -15,7 +15,29 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  answers: [answerSchema],
+  matchingQuestion: {
+    type: Boolean,
+  },
+  numberedAnswersQuantity: {
+    type: Number,
+  },
+  letteredAnswersQuantity: {
+    type: Number,
+  },
+  tableTitles: {
+    title1: {
+      type: String,
+    },
+    title2: {
+      type: String,
+    },
+  },
+  table: [
+    [{ type: String }],
+    [{ type: String }],
+  ],
+  matchingQuestionAnswers: [{ type: String }],
+  simpleQuestionAnswers: [answerSchema],
 });
 
 const testSchema = new mongoose.Schema({
